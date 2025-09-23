@@ -15,3 +15,4 @@ console.log(base)
 const absolute =path.resolve(__dirname,"/content",'subpath','text.txt');
 
 console.log(absolute);
+
