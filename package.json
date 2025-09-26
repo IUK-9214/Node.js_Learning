@@ -2,7 +2,7 @@
   "name": "node.js-learning",
   "version": "1.0.0",
   "description": "",
-  "main": "main-app-nodemon",
+  "main": "practice-file.js",
   "scripts": {
     "start": "nodemon app.js"
   },
