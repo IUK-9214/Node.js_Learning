@@ -1,26 +1,15 @@
-console.log("i m here ")
+const fs=require('fs')
+const http=require('http')
+
+const server=http.createServer(
+    (req,res)=>{
+        const text=fs.readFileSync('./content/result-file.txt','utf8')
+        res.end(text)
+    }
+);
 
 
-const {createReadStream,writeFile} =require('fs')
-
-let content ='';
-for (let i=0;i<1000;i++){
-    content+=`${i}. Sweet Heart\n`;
-}
-
-
-const file=writeFile('./content/result-file.txt',content,(err)=>{
-if (err){
-    console.log("error writing the file ",err)
-    return
-}
-console.log("file writed")
-})
-
-
-
-const stream=createReadStream('./content/result-file.txt',)
-
-stream.on('data',(result)=>{
-    console.log(result)
+server.listen(5000,()=>{
+    console.log('port is listening 50000....');
+    
 })
