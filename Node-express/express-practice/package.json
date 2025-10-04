@@ -1,0 +1,17 @@
+{
+  "name": "express-practice",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app-express.js",
+  "scripts": {
+    "start": "app-express.js"
+  },
+  "keywords": [],
+  "author": "Ibad Ullah Khan",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "express": "^5.1.0",
+    "nodemon": "^3.1.10"
+  }
+}
