@@ -1,13 +1,13 @@
 {
   "name": "node-express",
   "version": "1.0.0",
-  "description": "",
+  "description": "A sample Node.js project",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "",
+  "author": "Ibad Ullah Khan",
   "license": "ISC",
   "type": "commonjs",
   "dependencies": {
