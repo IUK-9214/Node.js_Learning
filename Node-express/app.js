@@ -3,23 +3,40 @@ const https=require('http');
 const server=https.createServer((req,res)=>{
 const {readFileSync}=require('fs')
 
-const homePage=readFileSync('./index.html')
+const homePage=readFileSync('./Nav-bar/index.html')
+const homeStyles=readFileSync('./Nav-bar/styles.css')
+const homelogo=readFileSync('./Nav-bar/logo.svg')
+const homelogics=readFileSync('./Nav-bar/broswer-app.js')
 
     //req.method
 
 const url =req.url;
 //home page
-if (url=='/'){    
+if (url==='/'){    
 res.writeHead(200,{'content-type': 'text/html'});
     res.write(homePage);
     res.end();
 }
-//about page 
- else if (url=='/about'){    
-res.writeHead(200,{'content-type': 'text/html'});
-    res.write('<h1> About  page </h1>');
+//styles of the nav bar
+else if (url==='/styles.css'){
+    res.writeHead(200,{'content-type':'text/css'})
+    res.write(homeStyles);
+    res.end()
+}
+//broswer-app.js 
+ else if (url==='/broswer-app.js'){    
+res.writeHead(200,{'content-type': 'text/javascript'});
+    res.write(homelogics);
     res.end();
 }
+
+
+else if (url==='/logo.svg'){
+    res.writeHead(200,{'content-type':'image/svg+xml'})
+    res.write(homelogo);
+    res.end();
+}
+
 
 //404 page not found 
  else{    
