@@ -3,10 +3,11 @@ const path = require('path')
 const app=express();
 
 
-app.get('/',(req,res)=>{
+// app.get('/',(req,res)=>{
 
-    res.sendFile(path.resolve(__dirname,'../Nav-bar/index.html'))
-})
+//     res.sendFile(path.resolve(__dirname,'../Nav-bar/index.html'))
+//adding to static assets  SSR(server side rendering)
+// })
 
 app.use(express.static('./public'))
 
