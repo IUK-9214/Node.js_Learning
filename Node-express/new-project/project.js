@@ -7,7 +7,7 @@ app.get('/',(req,res)=>{
     res.status(200).send('<h1>Home Page</h1><a href="/api/place">places</a>     <br>  <a href="/api/place">single place</a> ');
 
 })
-
+// 📍 Get all places
 app.get('/api/place',(req,res)=>{
 
     const newdata=data.map((dat)=>{
@@ -18,10 +18,13 @@ app.get('/api/place',(req,res)=>{
     res.json(newdata);
 })
 
+
+
+// 📍 Get single place by ID
 app.get(('/api/place/:PlaceId'),(req,res)=>{
 
     const {PlaceId}=req.params;
-
+// ✅ Convert both to number for comparison
 const singlePlace=data.find((data)=>data.id===String(PlaceId))
 
 if(!singlePlace){
@@ -31,10 +34,30 @@ if(!singlePlace){
  return res.json(singlePlace);
 })
 
+
+//nested route example
 app.get('/api/place/:PlaceId/reviews/:reviewId',(req,res)=>{
     console.log(req.params);
     res.send("hello ibad ")
     
+})
+//query example
+app.get('/api/v1/query',(req,res)=>{
+    // console.log(req.query)
+    const{search,limit}=req.query
+    let sortedPlaces=[...data]
+
+    if(search){
+        sortedPlaces=sortedPlaces.filter((places)=>{
+            return places.name.startsWith(search);
+        })
+    }
+    if (limit){
+        sortedPlaces=sortedPlaces.slice(0,Number(limit));
+
+    }
+    res.status(200).json(sortedPlaces);
+
 })
 
 app.use((req,res)=>{
