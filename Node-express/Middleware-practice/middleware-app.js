@@ -1,28 +1,28 @@
 const express=require('express');
 const app=express();
-
+const logger=require('./logger')
+const authorize=require('./authorize')
 //req => middleware => res
 //middle ware is a function which is run when sever hit the req the it start and run give res
-
-const logger=(req,res,next)=>{
-const method=req.method;
-const url=req.url;
-const date=new Date().getFullYear();
-console.log("Here:",method,url,date)
-next();
-}
 //here is the middle ware when i hit the request so it start the logger
-//aslo there is the next which is for the another middle ware 
+//aslo there is the next which is for the another middle ware
+//if we pass multi middleware so it would be in array form 
+app.use([authorize,logger])
+//by useing the use funcion it is calling it when ever a request is made 
+//also order matter i should use the teh use function before any request 
 
-
-
-
-app.get('/',logger,(req,res)=>{
+app.get('/',(req,res)=>{
     res.status(200).send("home page ")
 })
 
-app.get('/about',logger,(req,res)=>{
+app.get('/about',(req,res)=>{
     res.status(200).send("about page ");
+})
+app.get('/api/product',(req,res)=>{
+    res.status(200).send("Products");
+})
+app.get('/api/items',(req,res)=>{
+    res.status(200).send(" Items");
 })
 
 
