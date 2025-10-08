@@ -56,7 +56,10 @@ app.get('/api/v1/query',(req,res)=>{
         sortedPlaces=sortedPlaces.slice(0,Number(limit));
 
     }
-    res.status(200).json(sortedPlaces);
+    if(sortedPlaces.length<1){
+        return res.status(200).json({sucess:true,data:[]})
+    }
+   return  res.status(200).json(sortedPlaces);
 
 })
 
