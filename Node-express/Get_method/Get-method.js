@@ -13,9 +13,11 @@ app.get('/api/people',(req,res)=>{
 })
 
 app.post("/login",(req,res)=>{
-console.log(req.body);
-
-    res.send("Post")
+let name=req.body.name
+if(name){
+    res.status(200).send(`Welcome :  ${name} `)
+}
+else  {  res.status(404).send("please provide name :")}
 
 })
 
