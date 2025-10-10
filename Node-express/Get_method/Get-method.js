@@ -6,12 +6,23 @@ let {people}=require('./data-for-get');
 
 app.use(express.static('./method-public'))
 app.use(express.urlencoded({extended:false}))
-
+app.use(express.json());
 app.get('/api/people',(req,res)=>{
 
     res.status(200).send({success:true,data:people});
 })
+//post method example
+app.post('/api/people',(req,res)=>{
+    const{name}=req.body
+    if(!name){
+        res.status(400).json({success:false,msg:"pleaze provide name value"})
+    }
+res.status(201).json({success:true,person:name})
 
+})
+
+
+//post method
 app.post("/login",(req,res)=>{
 let name=req.body.name
 if(name){
