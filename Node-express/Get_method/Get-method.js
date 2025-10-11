@@ -65,6 +65,20 @@ res.status(200).json({success:true, data:newPeople})
 
 })
 
+//delete method 
+
+app.delete('/api/people/:id',(req,res)=>{
+const name=people.find((person)=>person.id===Number(req.params.id));
+console.log(name)
+if(!name){
+    return res.status(404).json({success:false,msg:`no person founded ${req.params.id}`})
+}
+
+const newPerson= people.find((person)=>person.id!==Number(req.params.id));
+return res.status(200).json({success:true,data:newPerson})
+
+
+})
 
 
 
