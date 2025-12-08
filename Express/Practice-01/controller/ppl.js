@@ -1,7 +1,3 @@
-
-
-
-export const ppl=(req,res)=>{
-    res.send("i m wriking in side of the router")
-    res.end();
-}
+export const ppl = (req, res) => {
+    res.send("I am working inside the controller ✅");
+};

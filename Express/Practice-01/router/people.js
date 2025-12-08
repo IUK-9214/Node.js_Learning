@@ -1,8 +1,10 @@
-import express, { Router } from "express";
+import { Router } from "express";
 import { ppl } from "../controller/ppl.js";
 
-const router =Router()
+const router = Router();
 
-router.get("/ppl",ppl)
+// Final route becomes: /ppl
+router.get("/", ppl);
 
-module.exports= router;
+export default router;
+
