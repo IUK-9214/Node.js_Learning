@@ -1,9 +1,11 @@
 import express from "express"
-import { CreateUsers, Users } from "../Controller/Users.js"
+import { CreateUsers, ReadSignleData, Users } from "../Controller/Users.js"
 
 const router= express.Router()
 
 router.route("/user").get(Users)
+
 router.route("/user").post(CreateUsers)
-router.route
+
+router.route("/user/:id").get(ReadSignleData)
 export default router
